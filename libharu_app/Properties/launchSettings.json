@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "libharu_app": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
