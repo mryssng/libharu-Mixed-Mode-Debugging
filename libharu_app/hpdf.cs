@@ -337,7 +337,6 @@ public class HPdfDoc: IDisposable {
 
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
-    //private extern static string HPDF_GetVersion();
     private extern static IntPtr HPDF_GetVersion();
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -417,20 +416,17 @@ public class HPdfDoc: IDisposable {
                     string encoding_name);
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
-    //private extern static string HPDF_LoadType1FontFromFile(IntPtr pdf,
-    //                string afmfilename, string pfmfilename);
+
     private extern static IntPtr HPDF_LoadType1FontFromFile(IntPtr pdf,
                     string afmfilename, string pfmfilename);
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
-    //private extern static string HPDF_LoadTTFontFromFile(IntPtr pdf,
-    //                string file_name, int embedding);
+
     private extern static IntPtr HPDF_LoadTTFontFromFile(IntPtr pdf,
                     string file_name, int embedding);
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
-    //private extern static string HPDF_LoadTTFontFromFile2(IntPtr pdf,
-    //            string file_name, uint index, int embedding);
+
     private extern static IntPtr HPDF_LoadTTFontFromFile2(IntPtr pdf,
                 string file_name, uint index, int embedding);
     
@@ -509,8 +505,6 @@ public class HPdfDoc: IDisposable {
                     HPdfInfoType type, HPdfDate value);
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
-    //private extern static string HPDF_GetInfoAttr(IntPtr pdf,
-    //                HPdfInfoType type);
     private extern static IntPtr HPDF_GetInfoAttr(IntPtr pdf,
                     HPdfInfoType type);
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -560,7 +554,6 @@ public class HPdfDoc: IDisposable {
 
     public static string HPdfGetVersion() {
         return Marshal.PtrToStringAnsi(HPDF_GetVersion());
-        //return HPDF_GetVersion();
     }
 
     public static void ErrorProc(uint error_no, uint detail_no,
@@ -674,16 +667,13 @@ public class HPdfDoc: IDisposable {
 
     public string LoadType1FontFromFile(string afmfilename,
             string pfmfilename) {
-        //string font_name;
         IntPtr  font_name;
 
         font_name = HPDF_LoadType1FontFromFile(hpdf, afmfilename, pfmfilename);
-        //return font_name;
         return Marshal.PtrToStringAnsi(font_name);
     }
 
     public string LoadTTFontFromFile(string file_name, bool embedding) {
-        //string font_name;
         IntPtr font_name;
         int emb;
 
@@ -693,13 +683,11 @@ public class HPdfDoc: IDisposable {
             emb = HPDF_FALSE;
 
         font_name = HPDF_LoadTTFontFromFile(hpdf, file_name, emb);
-        //return font_name;
         return Marshal.PtrToStringAnsi(font_name);
     }
 
     public string LoadTTFontFromFile2(string file_name, uint index,
             bool embedding) {
-        //string font_name;
         IntPtr font_name;
         int emb;
 
@@ -709,7 +697,6 @@ public class HPdfDoc: IDisposable {
             emb = HPDF_FALSE;
 
         font_name = HPDF_LoadTTFontFromFile2(hpdf, file_name, index, emb);
-        //return font_name;
         return Marshal.PtrToStringAnsi(font_name);
     }
 
@@ -1723,11 +1710,9 @@ public class HPdfPage{
 
 public class HPdfFont {
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
-    //private extern static string HPDF_Font_GetFontName(IntPtr hfont);
     private extern static IntPtr HPDF_Font_GetFontName(IntPtr hfont);
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
-    //private extern static string HPDF_Font_GetEncodingName(IntPtr hfont);
     private extern static IntPtr HPDF_Font_GetEncodingName(IntPtr hfont);
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -1775,7 +1760,6 @@ public class HPdfFont {
     }
 
     public string GetFontName() {
-        //return HPDF_Font_GetFontName(hfont);
         return Marshal.PtrToStringAnsi(HPDF_Font_GetFontName(hfont));
     }
 
@@ -2080,7 +2064,6 @@ public class HPdfImage: HPdfXObject {
     private extern static uint HPDF_Image_GetBitsPerComponent(IntPtr image);
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
-    //private extern static string HPDF_Image_GetColorSpace(IntPtr image);
     private extern static IntPtr HPDF_Image_GetColorSpace(IntPtr image);
 
     [DllImport("libhpdf.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -2111,7 +2094,6 @@ public class HPdfImage: HPdfXObject {
     }
 
     public string GetColorSpace() {
-        //return HPDF_Image_GetColorSpace(hobj);
         return Marshal.PtrToStringAnsi(HPDF_Image_GetColorSpace(hobj));
     }
 
